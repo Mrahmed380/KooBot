@@ -84,6 +84,7 @@ client.on("message", async message => {
     .setImage(
       "https://cdn.glitch.com/ecc800a4-c81e-42bd-8b1e-4f5c4b50a7fd%2FD869CE70-7585-4727-9C8D-B41866A12CD2.jpeg?v=1590630442280"
     );
+    
   let wordformat3 = new Discord.RichEmbed()
     .setTitle(
       `**${message.author.username}#${message.author.discriminator}** 錯誤格式！`
