@@ -257,7 +257,7 @@ client.on("message", async message => {
   
   //ticket system
   if(message.author.bot) {
-        if(message.embeds.length === 1 && message.embeds[0].description.startsWith('按下')) {
+        if(message.embeds.length === 1 && message.embeds[0].title === '伺服器') {
             message.react(':create:729705244904390797')
             .then(msgReaction => console.log('Reacted.'))
             .catch(err => console.log(err));
