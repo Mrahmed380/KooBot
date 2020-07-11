@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const config = require("../config.json");
 
 module.exports.run = async (bot, message, args) => {
-  if(message.author.id !== config.ownerID) return;
+  
   let embed6 = new Discord.RichEmbed()
   .setDescription(`:no_entry_sign: ${message.author.username}, 這個指定只適用於 RealKoolisw`)
   .setColor('RED')
