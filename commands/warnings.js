@@ -1,27 +1,36 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 const fs = require("fs");
 const ms = require("ms");
-let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
-module.exports.run = async (bot, message, args) =>{
-   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("You can't do that.");
-   let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-   if(!wUser) return message.reply("Couldn't find them yo");
-    if(!warns[wUser.id]) warns[wUser.id] = {
+
+exports.run = (client, message, args) => {
+    let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
+    let user = message.mentions.users.first();
+    if(message.mentions.users.size < 1) return message.reply('You must mention someone to check their warns.').catch(console.error);
+    if(!user) return message.reply("Couldn't find that user...");
+    if(!warns[user.id]) warns[user.id] = {
       warns: 0
     };
-   fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
-      if (err) console.log(err)
-    });
-   let warnEmbed = new Discord.RichEmbed()
-    .setDescription("<@${wUser.id}>的統計數據")
-    .setColor("#fc6400")
-    .addField("被警告的數量", warns[wUser.id].warns)
 
-
-   message.channel.send(warnEmbed);
+    const embed = new Discord.MessageEmbed()
+    .setColor(0xFFFF01)
+    .setTimestamp()
+    .addField('Action:', 'Warn Check')
+    .addField('User:', `${user.username}#${user.discriminator}`)
+    .addField('Number of warnings:', warns[`${user.id}, ${message.guild.id}`].warns)
+   
+    message.channel.send({embed});
 }
 
-module.exports.help = {
-  name: "warnlevel"
-}
+exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: [],
+    permLevel: 0
+  };
+  
+  exports.help = {
+    name: 'warnlevel',
+    description: 'Show how many warnings a user have',
+    usage: 'warnlevel [mention]'
+  };
