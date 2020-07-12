@@ -168,7 +168,7 @@ client.on("message", async message => {
       message.react("✅").then(() => message.react("❌"));
     }
   }
-  if (message.channel.id === "704653293351338044") {
+  if (message.channel.id === "731458514500714526") {
     const notwords2 = ["我的建議", "My Suggestion"];
     if (!notwords2.some(word => message.content.includes(word))) {
       if (!message.member.hasPermissions("ADMINISTRATOR"))
@@ -183,7 +183,7 @@ client.on("message", async message => {
     }
   }
 
-  if (message.channel.id === "712541109615853618") {
+  if (message.channel.id === "731458821809111080") {
     const notwords2 = ["我的Youtube建議", "My Youtube Suggestion"];
     if (!notwords2.some(word => message.content.includes(word))) {
       if (!message.member.hasPermissions("ADMINISTRATOR"))
