@@ -18,8 +18,8 @@ module.exports.run = async (bot, message, args) => {
   message.delete()
   
   message.channel.fetchMessages({around: msgId, limit: 1})
-    .then(msg => {
-        const fetchedMsg = msg.first();
+    .then(message => {
+        const fetchedMsg = message.first();
         fetchedMsg.edit(embed);
     });
 }
