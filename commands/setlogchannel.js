@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
   if(!message.member.hasPermission("MANAGE_SERVER")) return message.channel.send(noPerms);
   if(!args[0] || args[0 == "help"]) return message.channel.send(noPerms123);
 
-  let logchannels = JSON.parse(fs.readFileSync("./setlogchannel.json", "utf8"));
+  let logchannels = JSON.parse(fs.readFileSync("../setlogchannel.json", "utf8"));
 
   logchannels[message.guild.id] = {
     logchannels: args[0]
