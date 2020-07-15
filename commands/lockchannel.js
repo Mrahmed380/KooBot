@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 
 exports.run = (client, message, args) => {
     let ssssssss = new Discord.RichEmbed()
-  .setDescription(`<:tick:702386031361523723>成功解鎖頻道`)
+  .setDescription(`<:tick:702386031361523723> Channel Unlocked`)
   .setColor('#FFFF00')
     if (!client.lockit) client.lockit = [];
     let time = args.join(' ');
@@ -28,7 +28,7 @@ exports.run = (client, message, args) => {
         });
     } else {
         let EMDDD = new Discord.RichEmbed()
-  .setDescription(`<:tick:702386031361523723>成功鎖定頻道, 長度為${ms(ms(time), { long:true })}`)
+  .setDescription(`<:tick:702386031361523723> Locked Channel for ${ms(ms(time), { long:true })}`)
   .setColor('#FFFF00') 
         
         message.channel.overwritePermissions(message.guild.id, {
