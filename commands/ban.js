@@ -52,7 +52,7 @@ exports.run = async(bot, msg, args) => {
   .setTimestamp()
   .setFooter(`• Ban User Information`);//
   let bsuembed = new Discord.RichEmbed()
-  .setDescription(`<:tick:702386031361523723> Banned _**${banTaged.user.username}#${banTaged.user.discriminator}**_ | ${reason}`)
+  .setDescription(`<:tick:702386031361523723> Banned <@${banTaged.id}> | ${reason}`)
   .setColor('#FFFF00')
   
   msg.delete()
