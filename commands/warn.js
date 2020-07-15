@@ -41,7 +41,7 @@ exports.run = async (bot, message, args) =>{
     .addField("Warned User", `<@${wUser.id}>`)
     .addField("Warned In", message.channel)
     .addField("Number of Warnings", warns[wUser.id].warns)
-    .addField("Reason", reason);
+    .addField("Reason", `${reason}`);
     let bsuembed = new Discord.RichEmbed()
   .setDescription(`<:tick:702386031361523723>Successfully Warned **${wUser.user.username}#${wUser.user.discriminator}** | ${reason}！`)
   .setColor('GREEN')
