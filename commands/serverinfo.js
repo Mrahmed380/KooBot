@@ -27,17 +27,17 @@ module.exports.run = async (bot, message, args) => {
     };
     const embed = new Discord.RichEmbed()
         .setAuthor(message.guild.name, message.guild.iconURL)
-        .addField("名稱", message.guild.name, true)
+        .addField("Name", message.guild.name, true)
         .addField("ID", message.guild.id, true)
-        .addField("擁有人", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`, true)
-        .addField("伺服器位置", region[message.guild.region], true)
-        .addField("總共 | 人類 | 機械人", `${message.guild.members.size} | ${message.guild.members.filter(member => !member.user.bot).size} | ${message.guild.members.filter(member => member.user.bot).size}`, true)
-        .addField("安全等級", verifLevels[message.guild.verificationLevel], true)
-        .addField("頻道", message.guild.channels.size, true)
-        .addField("身份組", message.guild.roles.size, true)
-        .addField("創建日期", `${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(message.channel.guild.createdAt)})`, true)
+        .addField("Owner", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`, true)
+        .addField("Location", region[message.guild.region], true)
+        .addField("Total | Human | Bot", `${message.guild.members.size} | ${message.guild.members.filter(member => !member.user.bot).size} | ${message.guild.members.filter(member => member.user.bot).size}`, true)
+        .addField("Security Level", verifLevels[message.guild.verificationLevel], true)
+        .addField("Channels", message.guild.channels.size, true)
+        .addField("Roles", message.guild.roles.size, true)
+        .addField("Create at", `${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(message.channel.guild.createdAt)})`, true)
         .setThumbnail(message.guild.iconURL)
-    message.channel.send('<a:Discordloading:715868120795054142> 正在從伺服器中加載')
+    message.channel.send('<a:Discordloading:715868120795054142> Loading From Discord API')
   .then((message) => {
     setTimeout(function() {
     message.edit({embed});
