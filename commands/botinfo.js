@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Channels", `${chansize}`, inline)
     .addField("Users", `${usersize}`, inline)
     .addField("Bot Library", "Discord.js", inline)
-    .addField("Bot Version", `${config.version}`)
+    .addField("Bot Version", `v11.4.2`)
     .addField("Created On", bot.user.createdAt)
     .setFooter(`©2020 Draconian Workshop | This command requested by ${message.author.username}#${message.author.discriminator}`)
     .setTimestamp()
