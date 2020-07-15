@@ -6,13 +6,13 @@ module.exports.run = async (bot, message, args) => {
 
   //!tempmute @user 1s/m/h/d
 let embed6 = new Discord.RichEmbed()
-  .setDescription(`:no_entry_sign: ${message.author.username}, 你沒有權限去執行這個指令`)
+  .setDescription(`:no_entry_sign: ${message.author.username}, Missing Permission`)
   .setColor('RED')
     if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(embed6).then(msg=>msg.delete(5000));
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   const embed50 = new Discord.RichEmbed()
-        .setTitle(`指令: +tempwarn`)
-        .setDescription(`你看到這條信息的話，可能你使用方法出錯了。\n\n**內容功能:** TempMute一個成員\n**使用方法:** +tempmute [用戶] [時間長度] [原因]\n**例子:** +tempmute @RealKoolisw 10m ShutUp`)
+        .setTitle(`Command: d!mute`)
+        .setDescription(`Usage: d!mute @user length reason`)
         .setColor(0xff0000)
         .setFooter(`Beta Feature`)
   if(!tomute) return message.channel.send(embed50);
@@ -46,23 +46,23 @@ let embed6 = new Discord.RichEmbed()
    let embed = new Discord.RichEmbed()
   .setTitle(`Action Mute`)
   .setColor('RED')
-  .addField(`用戶`, `<@${tomute.user.id}> | **${tomute.user.username}#${tomute.user.discriminator}**`)
-  .addField(`執行者`, `<@${message.author.id}> | **${message.author.username}#${message.author.discriminator}**`)
+  .addField(`Target`, `<@${tomute.user.id}> | **${tomute.user.username}#${tomute.user.discriminator}**`)
+  .addField(`User`, `<@${message.author.id}> | **${message.author.username}#${message.author.discriminator}**`)
    .addField(`TempMute Length`, `${ms(ms(mutetime))}`)
-  .addField(`原因`, `\`\`\`${reason}\`\`\``)
+  .addField(`Reason`, `\`\`\`${reason}\`\`\``)
     .setTimestamp()
   .setFooter(`• Mute User Information`);
   logs.send(embed)
   
 let embed10 = new Discord.RichEmbed()
-  .setDescription(`<:tick:702386031361523723> 已經成功被靜音，靜音期為${ms(ms(mutetime))} ｜ 原因為 **${reason}**`)
+  .setDescription(`<:tick:702386031361523723> Muted **<@${tomute.id}>** for **${ms(ms(mutetime))}** | **${reason}**`)
   .setColor('GREEN')
   await(tomute.addRole(muterole.id));
   message.delete()
   message.channel.send(embed10);
   
   let embed11 = new Discord.RichEmbed()
-  .setDescription(`<:tick:702386031361523723> <@${tomute.id}>已經達到靜音期限，系統已將它取消靜音`)
+  .setDescription(`<:tick:702386031361523723> <@${tomute.id}> has been unmuted`)
   .setColor('YELLOW')
 
   setTimeout(function(){
