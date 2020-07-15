@@ -7,30 +7,33 @@ module.exports.run = async (bot, message, args) => {
         .setColor(0xff0000)
   
   const noPerms123 = new Discord.RichEmbed()
-        .setDescription(`:no_entry_sign: Usage: ~prefix <desired prefix here>`)
+        .setDescription(`:no_entry_sign: Usage: d!prefix <desired prefix here>`)
         .setColor(0xff0000)
 
-  if(!message.member.hasPermission("MANAGE_SERVER")) return message.channel.send(noPerms);
-  if(!args[0] || args[0 == "help"]) return message.channel.send(noPerms123);
-
-  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-
-  prefixes[message.guild.id] = {
-    prefixes: args[0]
-  };
-
-  fs.writeFile("./prefixes.json", JSON.stringify(prefixes), (err) => {
-    if (err) console.log(err)
-  });
-
-  let sEmbed = new Discord.RichEmbed()
-  .setColor("#FF9900")
-  .setTitle("Prefix Set!")
-  .setDescription(`Set to ${args[0]}`)
-  .setFooter(`©2020 Draconian Workshop | This command requested by ${message.author.username}#${message.author.discriminator}`)
-
-  message.channel.send(sEmbed);
-
+  if(!message.member.hasPermission("ADMINISTRATOR")) {
+      return message.channel.send("You are not allowed or do not have permission to change prefix")
+    }
+    
+    if(!args[0]) {
+      return message.channel.send("Please give the prefix that you want to set")
+    } 
+    
+    if(args[1]) {
+      return message.channel.send("You can not set prefix a double argument")
+    }
+    
+    if(args[0].length > 3) {
+      return message.channel.send("You can not send prefix more than 3 characters")
+    }
+    
+    if(args.join("") === default_prefix) {
+      db.delete(`prefix_${message.guild.id}`)
+     return await message.channel.send("Reseted Prefix ✅")
+    }
+    
+    db.set(`prefix_${message.guild.id}`, args[0])
+  await message.channel.send(`Seted Bot Prefix to ${args[0]}`)
+    
 }
 
 module.exports.help = {
