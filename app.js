@@ -13,6 +13,8 @@ const ytdl = require("ytdl-core");
 client.login(process.env.TOKEN);
 client.config = config;
 var scount = client.guilds.size;
+const db = require("quick.db")
+
 
 const dbl = require("dblposter");
 const DBLPoster = new dbl(`
@@ -204,13 +206,13 @@ client.on("message", async message => {
   
   
 
-  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-  if (!prefixes[message.guild.id]) {
-    prefixes[message.guild.id] = {
-      prefixes: config.prefix
-    };
-  }
-  let prefix = prefixes[message.guild.id].prefixes;
+ 
+  
+  
+  let prefix = db.get(`prefix_${message.guild.id}`)
+  if(prefix === null) prefix = config.prefix;
+  
+  
   if (!message.content.startsWith(prefix)) return;
 
   if (message.author.bot) return undefined;
