@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 message.channel.send("Pinging...").then(message => {
 
 const end = Date.now()
-message.edit(`喂，你ping我嗎? 網路延遲: **${(end - start)}**ms!`)
+message.edit(`Network Delay: **${(end - start)}**ms!`)
 })
 }
 
