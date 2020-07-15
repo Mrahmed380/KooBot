@@ -3,10 +3,18 @@ const fs = require('fs');
 const config = require("../config.json");
 
 exports.run = async(bot, msg, args) => {
-  
+  let logsChannels = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+  if (!logsChannels[msg.guild.id]) {
+    logsChannels[msg.guild.id] = {
+      prefixes: config.logsChannel
+    };
+  }
+  let logs = logsChannels[msg.guild.id].logsChannels;
+
+
   let banTaged = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
   let reason = args.slice(1).join(' ');
-  let logs = msg.guild.channels.find('name', config.logsChannel);
+  
   let mmqembed = new Discord.RichEmbed()
   .setDescription(`:no_entry_sign: ${msg.author.username}, Missing Permission`)
   .setColor('#FFFF00')
@@ -31,7 +39,7 @@ exports.run = async(bot, msg, args) => {
   }
   
   let lombed = new Discord.RichEmbed()
-  .setAuthor(`Please create a called **${config.logsChannel}** to log a Ban!`)
+  .setAuthor(`Please create a called ${config.logsChannel} to log a Ban!`)
   .setColor('#FFFF00')
   if (!logs) return msg.channel.send(lombed);
   
