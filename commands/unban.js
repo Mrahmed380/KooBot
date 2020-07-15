@@ -6,8 +6,8 @@ exports.run = (client, message, args) => {
     let user = args[0];
 
 let embed1 = new Discord.RichEmbed()
-  .setTitle("指令: +unban")
-  .setDescription("你看到這條信息的話，可能你使用方法出錯了。\n\n**內容功能:** UnBan一個成員\n**使用方法:** +unban [用戶ID]\n**例子:** +unban 611804698856521728 Noob")
+  .setTitle("Command: d!unban")
+  .setDescription("Usage: d!unban [user id]")
   .setColor('RED')
   let embed2 = new Discord.RichEmbed()
   .setDescription("you must supply a `UserResolvable`, i.e. a user ID.")
@@ -16,7 +16,7 @@ let embed1 = new Discord.RichEmbed()
   .setAuthor(`Please create a called ${config.logsChannel} to log a Ban!`)
   .setColor('#FFFF00')
   let EMDDD = new Discord.RichEmbed()
-  .setDescription(`<:tick:702386031361523723>成功UNBAN **${user}**`)
+  .setDescription(`<:tick:702386031361523723> Unbanned <@${user.id}>`)
   .setColor('#FFFF00')
   
   
