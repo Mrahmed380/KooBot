@@ -61,29 +61,7 @@ http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 
 client.on("message", async message => {
     
-  let wordformat = new Discord.RichEmbed()
-    .setTitle(
-      `**${message.author.username}#${message.author.discriminator}** 錯誤格式！`
-    )
-    .setDescription(
-      "建議格式:\n應該以「我的Roblox名字」開頭\n\n例子:  我的Roblox名字:Koolisw"
-    )
- 
-    .setColor("RED")
-    .setImage(
-      "https://cdn.glitch.com/ecc800a4-c81e-42bd-8b1e-4f5c4b50a7fd%2FCD17F780-FE82-4844-BCEB-EDD478516AAD.jpeg?v=1590630273458"
-    );
-  let wordformat2 = new Discord.RichEmbed()
-    .setTitle(
-      `**${message.author.username}#${message.author.discriminator}** 錯誤格式！`
-    )
-    .setDescription(
-      "建議格式:\n應該以「ROBLOX大挑戰」開頭\n\n例子:  ROBLOX大挑戰: 在Jailbreak中殺10名警察"
-    )
-    .setColor("RED")
-    .setImage(
-      "https://cdn.glitch.com/ecc800a4-c81e-42bd-8b1e-4f5c4b50a7fd%2FD869CE70-7585-4727-9C8D-B41866A12CD2.jpeg?v=1590630442280"
-    );
+
     
   let wordformat3 = new Discord.RichEmbed()
     .setTitle(
@@ -118,20 +96,7 @@ client.on("message", async message => {
     .setImage(
       "https://cdn.glitch.com/ecc800a4-c81e-42bd-8b1e-4f5c4b50a7fd%2F5F569D81-83E9-4F79-BC22-1CD77A7B2540.jpeg?v=1590637439754"
     );
-  let wordformat6 = new Discord.RichEmbed()
-    .setTitle(
-      `**${message.author.username}#${message.author.discriminator}** 錯誤格式！`
-    )
-    .setDescription(
-      "建議格式:\n應該以「分享內容」開頭\n\n***例子:***\n分享內容: 網址或圖片+描述\n***並且至少為您的描述寫了50個以上的單詞描述，否則將被刪除***"
-    )
-    .setColor("RED");
-  let wordformatmsg1 = new Discord.RichEmbed()
-    .setTitle(`歡迎來到共享區`)
-    .setDescription(
-      "請在此區域與所有人共享他/她的物品，但需要遵循以下規則來分組規則，例如：NSFW或任何粗魯的言詞都將被禁止\n\n您的共享間隔為**30**分鐘\n\n請記住，如果共享內容太短或垃圾內容描述將被刪除，任何共享帖子中至少要寫**50**個字"
-    )
-    .setColor("RED");
+ 
   let wordformatmsg2 = new Discord.RichEmbed()
     .setTitle(`錯誤訊息/格式`)
     .setDescription(
@@ -139,35 +104,8 @@ client.on("message", async message => {
     )
     .setColor("RED");
 
-  if (message.channel.id === "691162893705543712") {
-    const notwords = ["我的Roblox名字", "My ROBLOX Name"];
-    if (!notwords.some(word => message.content.includes(word))) {
-      if (!message.member.hasPermissions("ADMINISTRATOR"))
-        return message
-          .delete()
-          .then(
-            message.channel.send(wordformat).then(msg => msg.delete(10000))
-          );
-    }
-    if (notwords.some(word => message.content.includes(word))) {
-      message.react("✅").then(() => message.react("❌"));
-    }
-  }
 
-  if (message.channel.id === "715222693716295731") {
-    const notwords2 = ["ROBLOX大挑戰"];
-    if (!notwords2.some(word => message.content.includes(word))) {
-      if (!message.member.hasPermissions("ADMINISTRATOR"))
-        return message
-          .delete()
-          .then(
-            message.channel.send(wordformat2).then(msg => msg.delete(10000))
-          );
-    }
-    if (notwords2.some(word => message.content.includes(word))) {
-      message.react("✅").then(() => message.react("❌"));
-    }
-  }
+  
   if (message.channel.id === "731458514500714526") {
     const notwords2 = ["我的建議", "My Suggestion"];
     if (!notwords2.some(word => message.content.includes(word))) {
@@ -227,10 +165,10 @@ client.on("message", async message => {
   }
 
   if (message.guild.id === "687219262406131714") {
-    if(message.channel.id === "703080590110490655") return;
-    if(message.channel.id === "720286615972610048") return;
-    if(message.channel.id === "700978700492996650") return;
-    let embed2 = new Discord.RichEmbed().setTitle(
+  if(message.channel.id === "703080590110490655") return;
+  if(message.channel.id === "720286615972610048") return;
+  if(message.channel.id === "700978700492996650") return;
+  let embed2 = new Discord.RichEmbed().setTitle(
       `**${message.author.username}#${message.author.discriminator}** 喂！注意你的言行！`
     );
     let embed310101 = new Discord.RichEmbed()
