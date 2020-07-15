@@ -5,7 +5,7 @@ exports.run = async (client, message, args, level) => {
     .setColor("GREEN")
     .setImage(`${message.author.displayAvatarURL}`)
     .addField(
-      "你的用戶圖標:",
+      "User Avatar:",
       `[Image URL](${message.author.displayAvatarURL})`,
       true
     );
