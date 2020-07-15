@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const fs = require("fs");
+const config = require("../config.json");
 
 module.exports.run = async (bot, message, args) => {
   const noPerms = new Discord.RichEmbed()
@@ -26,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
       return message.channel.send("You can not send prefix more than 3 characters")
     }
     
-    if(args.join("") === default_prefix) {
+    if(args.join("") === config.prefix) {
       db.delete(`prefix_${message.guild.id}`)
      return await message.channel.send("Reseted Prefix ✅")
     }
