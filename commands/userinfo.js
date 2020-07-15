@@ -23,12 +23,12 @@ module.exports.run = async (bot, message, args) => {
     const embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setAuthor(`${user.tag} Info`, message.author.displayAvatarURL)
-        .setDescription(`**• 名稱：**${user.tag}\n**• ID: **${user.id}\n\n**• 帳戶類型：**${trufal[user.bot]}\n**• 狀態：**${status[user.presence.status]}\n**• 遊戲： **${user.presence.game ? user.presence.game.name : 'I do not see him playing anything!'}\n**• 帳戶創建日期:** ${user.createdAt}**\n\n• 角色：**${member.roles.map(roles => `${roles}`).join(', ')}\n\n**• 個人資料照片鏈接：**[Click here](${user.displayAvatarURL})`)
+        .setDescription(`**• Name：**${user.tag}\n**• ID: **${user.id}\n\n**• Account Type：**${trufal[user.bot]}\n**• Status：**${status[user.presence.status]}\n**• Game： **${user.presence.game ? user.presence.game.name : 'I do not see him playing anything!'}\n**• Created at:** ${user.createdAt}**\n\n• Roles：**${member.roles.map(roles => `${roles}`).join(', ')}\n\n**• Avatar：**[Click here](${user.displayAvatarURL})`)
 
         .setThumbnail(user.avatarURL)
         .setTimestamp()
     
-    message.channel.send('<a:Discordloading:715868120795054142>正在從Discord API中獲取信息')
+    message.channel.send('<a:Discordloading:715868120795054142>Loading From Discord API')
   .then((message) => {
     setTimeout(function() {
     message.edit({embed});
