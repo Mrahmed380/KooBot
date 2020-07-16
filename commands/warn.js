@@ -4,6 +4,7 @@ const ms = require("ms");
 const config = require("../config.json");
 const db = require("quick.db")
 
+
 exports.run = async (bot, message, args) =>{
    if(!message.member.hasPermission("ADMINISTRATOR")) {
       return message.channel.send("You should have admin perms to use this command!")
