@@ -10,7 +10,7 @@ var userTickets = new Map();
 const fs = require("fs");
 const filterwords = require("./filters.json");
 const ytdl = require("ytdl-core");
-client.login(process.env.TOKEN);
+client.login(config.TOKEN);
 client.config = config;
 var scount = client.guilds.size;
 const db = require("quick.db")
