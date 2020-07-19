@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => { // eslint-disable-line no-unuse
         let embed = new Discord.RichEmbed()
         .setTitle(message.author.username + ' kisses ' + member.user.username)
         .setColor('#eeeeee')
-        .setDescription(message.author.username + ' kissed ' + member.user.username + '!')
+        
         .setImage(json.url);
 
         message.channel.send(embed);
