@@ -17,8 +17,7 @@ const db = require("quick.db")
 
 
 const dbl = require("dblposter");
-const DBLPoster = new dbl(`
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU5OTk3NTA2MzU4NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk0MjkwODc0fQ.2dV7JhcntDs_trKMXf2ZY8Ys4DuuSmbj1cSaub7c2E0`);
+const DBLPoster = new dbl(`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU5OTk3NTA2MzU4NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1MTY5NTk3fQ.0tP9otAcxPGCn9dyzSG8zbZk7rMd3PqUYDoVYQTdy-0`);
 DBLPoster.bind(client);
 
 
