@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
   .setDescription(`Cleared ${args[0]} Message here`)
   
   logs.send(embed);
-  message.channel.send(kntlembed).then(msg=>msg.delete(30000))
+  message.channel.send(kntlembed).then(msg=>msg.delete(5000))
 });
 
 }
