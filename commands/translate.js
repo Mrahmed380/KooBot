@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const request = require("request");
 
+
 exports.run = (client, message, [args, ...words]) => {
     const regex = /[!*();,:@&=+$.\/?%#[\]]/g;
 
