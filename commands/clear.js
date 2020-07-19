@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
   
   let kntlembed = new Discord.RichEmbed()
   .setColor('GREEN')
-  .setDescription(`Cleared `${args[0]}` Message in **${args[0]}**`)
+  .setDescription(`Cleared ${args[0]} Message in **${args[0]}**`)
   
   logs.send(embed);
   message.channel.send(kntlembed).then(msg=>msg.delete(30000))
