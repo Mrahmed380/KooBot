@@ -141,7 +141,7 @@ exports.run = (client, message, [args, ...words]) => {
         if (!langs.hasOwnProperty(sourceLang))
             return message.channel.send(`Source language \`${sourceLang}\` doesn't exist.\n(if you believe this is wrong make a bug report using \`yabe bug\`)`);
         if (args[2] !== "-")
-            return message.channel.send('Please correctly format the command, like so\n\n`yabe translate en-es "word or sentence to translate"`');
+            return message.channel.send('Please correctly format the command, like so\n\n`d!translate en-es "word or sentence to translate"`');
         if (!langs.hasOwnProperty(targetLang))
             return message.channel.send(`Target Language \`${targetLang}\` doesn't exist.\n(if you believe this is wrong make a bug report using \`yabe bug\`)`);
         if (words == "")
