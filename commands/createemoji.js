@@ -1,4 +1,4 @@
-exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
+exports.run = async (client, message, args) => { // eslint-disable-line no-unused-vars
   try {
     let emoji = message.attachments.array()[0] || args[0];
     
