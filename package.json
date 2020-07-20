@@ -45,6 +45,7 @@
     "cryptr": "^6.0.2",
     "os-utils": "^0.0.14",
     "pidusage": "^2.0.21",
-    "moment-duration-format": "^2.2.2"
+    "moment-duration-format": "^2.2.2",
+    "moment": "^2.27.0"
   }
 }
