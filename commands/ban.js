@@ -9,7 +9,7 @@ exports.run = async(bot, msg, args) => {
       prefixes: config.logsChannel
     };
   }
-  let logs = logsChannels[msg.guild.id].logsChannels;
+  let logs = msg.guild.channels.find('name', config.logsChannel);
 
 
   let banTaged = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
