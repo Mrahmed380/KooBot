@@ -6,7 +6,7 @@ exports.run = (client, msg, args) => {
     superagent.get('https://nekobot.xyz/api/image')
     .query({ type: '4k'})
     .end((err, response, body) => {
-      let emb = new Discord.RichEmbed()
+      let emb = new discord.RichEmbed()
                     .setImage(body)
                     .setColor("#00ff00")
                     .setTitle("Pussy here")
