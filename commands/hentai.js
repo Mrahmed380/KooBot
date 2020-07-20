@@ -3,7 +3,7 @@ const superagent = require('superagent');
 
 
 exports.run = async (client, message, args) => {
-    if (msg.channel.nsfw === true) {
+    if (message.channel.nsfw === true) {
     const { body } = await superagent
     .get("https://nekos.life/api/v2/img/hentai");
     
@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
     .setFooter(`© Draconian Workshop`);
     message.channel.send({embed})
     }else {
-    msg.channel.send("This isn't NSFW channel!")
+    message.channel.send("This isn't NSFW channel!")
   }
 };
 
