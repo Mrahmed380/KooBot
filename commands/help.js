@@ -5,22 +5,22 @@ module.exports.run = async (bot, message, args) => {
     .setTitle("DraconianBot Help")
     .setColor("GREEN")
     .setDescription(
-      "**機械人預設prefix** `koo!`\nMore Info please visit: [Here]"
+      "**prefix** `d!`\nMore Info please visit: [Here]"
     )
-    .addField("**📱基本**", "`help`, `info`, `ping`, `getinvite`")
+    .addField("**📱基本**", "`help`, `info`, `ping`, `vote`")
     .addField(
-      "**⚙高效**",
-      "`serverinfo`, `userinfo`, `avatar`, `test`, `embed`, `eval`, `roleinfo`, `waether`, `botinfo`"
-    )
-    .addField(
-      "**🎃娛樂**",
-      "`8ball`, `joke`, `urban`, `cat`, `dog`, `cows`, `kill`, `reverse`"
+      "**⚙utility**",
+      "`serverinfo`, `userinfo`, `avatar`, `test`, `embed`, `eval`, `channel`, `waether`, `botinfo`, `timer`, `translate`, `urban`, `uptime`, `stats`, `aes256`, `deaes256`"
     )
     .addField(
-      "**🛠️管理**",
-      "`clear`, `ban`, `kick`, `mute`, `tempmute`, `warn`, `unmute`"
+      "**🎃Fun**",
+      "`8ball`, `joke`, `urban`, `cat`, `dog`, `duck`, `kiss`, `reverse`, `poke`, `pat`, `meme`, `smug`, `tickle`, `youtube`, `ngif`"
     )
-    .addField("📁自定義功能", "`setprefix`")
+    .addField(
+      "**🛠️Moderation**",
+      "`clear`, `ban`, `unban`, `kick`, `mute`, `tempmute`, `warn`, `unmute`, `rename`, `createemoji`, `createchannel`, `lockchannel`, `unlockdown`"
+    )
+    .addField(":underage: ", "`pussy`, `porn`, `4knsfw`, `holo`, `anal`, `spank`, `thigh`, `ass`")
     .setFooter(
       `©2020 Draconian Workshop | This command requested by ${message.author.username}#${message.author.discriminator}`
     )
