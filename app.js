@@ -150,6 +150,7 @@ client.on("message", async message => {
     }
   }
 
+ 
   if (message.guild.id === "687219262406131714") {
   if(message.channel.id === "703080590110490655") return;
   if(message.channel.id === "720286615972610048") return;
