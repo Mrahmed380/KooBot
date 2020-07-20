@@ -5,8 +5,14 @@ exports.run = (client, msg, args) => {
   if (msg.channel.nsfw === true) {
     superagent.get('https://nekobot.xyz/api/image')
     .query({ type: '4k'})
-    .end((err, response) => {
-      msg.channel.send({ file: response.body.message });
+    .end((err, response, body) => {
+      let emb = new Discord.RichEmbed()
+                    .setImage(body)
+                    .setColor("#00ff00")
+                    .setTitle("Pussy here")
+                    .setFooter(`©2020 Draconian Workshop | This command requested by ${msg.author.username}#${msg.author.discriminator}`)
+                              
+                   msg.channel.send(emb)  
     });
   } else {
     msg.channel.send("This isn't NSFW channel!")
