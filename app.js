@@ -15,20 +15,21 @@ client.config = config;
 var scount = client.guilds.size;
 const db = require("quick.db")
 
-const request = require('request-promise-native');
-function postServerCount() {
-    return request.post({
-        uri: `https://discordbots.org/api/bots/${client.user.id}/stats`,
-        headers: {
-            Authorization: `
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU5OTk3NTA2MzU4NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1MjQ4NjQ3fQ.DBhQFTSAa0QpQbd1-w6CeKKUpwyWDAoPNWEOsgUL3yo`, // Insert token here
-        },
-        json: true,
-        body: {
-            server_count: client.guilds.size,
-        },
-    });
-}
+
+const dbl = require(`discord-bot-list`)
+ 
+const client = new dbl({
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU5OTk3NTA2MzU4NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1MjQ4NjQ3fQ.DBhQFTSAa0QpQbd1-w6CeKKUpwyWDAoPNWEOsgUL3yo",
+    id: "711957599808913419"
+})
+
+client.postStats("Your bot's server count, MUST be a number, not a string", (err, res) => {
+    if(err) {
+        console.error(err)
+    } else {
+        console.log(res)
+    }
+})
 
 
 
