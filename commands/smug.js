@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
     const embed = new Discord.RichEmbed()
     .setColor("#ff9900")
     .setImage(body.url) 
-    .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
+    .setFooter(`© Draconian Workshop`);
     message.channel.send({embed})
 };
 
