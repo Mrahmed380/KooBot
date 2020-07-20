@@ -15,21 +15,11 @@ client.config = config;
 var scount = client.guilds.size;
 const db = require("quick.db")
 
-const dbl = require(`discord-bot-list`)
- 
-const clientcode = new dbl({
-    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU5OTk3NTA2MzU4NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1MjQ4NjQ3fQ.DBhQFTSAa0QpQbd1-w6CeKKUpwyWDAoPNWEOsgUL3yo",
-    id: "711957599808913419"
-})
+const dbl = require("dblposter");
+const DBLPoster = new dbl(`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU5OTk3NTA2MzU4NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1MjQ4NjQ3fQ.DBhQFTSAa0QpQbd1-w6CeKKUpwyWDAoPNWEOsgUL3yo`);
 
-clientcode.postStats("Your bot's server count, MUST be a number, not a string", (err, res) => {
-    if(err) {
-        console.error(err)
-    } else {
-        console.log(res)
-    }
-})
-
+// Then, depending on what you called your client
+DBLPoster.bind(client);
 
 
 client.on("ready", () => {
