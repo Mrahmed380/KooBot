@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
     const { body } = await superagent
     .get("https://nekos.life/api/v2/img/smug");
     
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.RichEmbed()
     .setColor("#ff9900")
     .setImage(body.url) 
     .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
