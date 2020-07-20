@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     .setDescription(
       "**prefix** `d!`\nMore Info please visit: [Here]"
     )
-    .addField("**📱基本**", "`help`, `info`, `ping`, `vote`")
+    .addField("**📱Basic**", "`help`, `info`, `ping`, `vote`")
     .addField(
       "**⚙utility**",
       "`serverinfo`, `whois`, `avatar`, `test`, `embed`, `eval`, `channel`, `waether`, `botinfo`, `timer`, `translate`, `urban`, `uptime`, `stats`, `aes256`, `deaes256`"
@@ -16,12 +16,12 @@ module.exports.run = async (bot, message, args) => {
       "**🎃Fun**",
       "`8ball`, `joke`, `urban`, `cat`, `dog`, `duck`, `kiss`, `reverse`, `poke`, `pat`, `meme`, `smug`, `tickle`, `youtube`, `ngif`"
     )
-    .addField("**:musical_note:Music (Beta)", "`play`")
+    .addField("**:musical_note:Music (Beta)**", "`play`")
     .addField(
       "**🛠️Moderation**",
       "`clear`, `ban`, `unban`, `kick`, `mute`, `tempmute`, `warn`, `unmute`, `rename`, `createemoji`, `createchannel`, `lockchannel`, `unlockdown`"
     )
-    .addField(":underage:NSFW", "`pussy`, `porn`, `4knsfw`, `holo`, `anal`, `spank`, `thigh`, `ass`")
+    .addField("**:underage:NSFW**", "`pussy`, `porn`, `4knsfw`, `holo`, `anal`, `spank`, `thigh`, `ass`")
     .setFooter(
       `©2020 Draconian Workshop | This command requested by ${message.author.username}#${message.author.discriminator}`
     )
