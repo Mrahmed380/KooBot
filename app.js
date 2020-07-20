@@ -245,23 +245,8 @@ client.on("message", async message => {
     
     
 
-  if (message.content.startsWith(`${prefix}stats`)) {
-    var mcount = client.users.size;
-    var scount = client.guilds.size;
-    var tcount = client.channels.filter(c => c.type === "text").size;
-    var vcount = client.channels.filter(c => c.type === "voice").size;
-    message.reply(
-      `${client.user.username} is on ${scount} servers with ${mcount} members, chatting on ${tcount} text channels, with ${vcount} voice channels!`
-    );
-  }
+  
 
-  if (message.content.startsWith(`${prefix}coinflip`)) {
-    var choices = ["heads", "tails"];
-
-    var output = choices[Math.floor(Math.random() * choices.length)];
-
-    message.channel.send(`You got **${output}!**`);
-  }
 });
 
 
