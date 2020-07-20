@@ -16,10 +16,10 @@ var scount = client.guilds.size;
 const db = require("quick.db")
 
 const dbl = require("dblposter");
-const DBLPoster = new dbl(`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU5OTk3NTA2MzU4NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1MjQ4NjQ3fQ.DBhQFTSAa0QpQbd1-w6CeKKUpwyWDAoPNWEOsgUL3yo`);
+const DBLPoster = new dbl(`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU5OTk3NTA2MzU4NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1MjQ4NjQ3fQ.DBhQFTSAa0QpQbd1-w6CeKKUpwyWDAoPNWEOsgUL3yo`, client);
 
 // Then, depending on what you called your client
-DBLPoster.bind(client);
+DBLPoster.bind();
 
 
 client.on("ready", () => {
