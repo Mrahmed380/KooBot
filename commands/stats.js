@@ -21,7 +21,7 @@ exports.run = async (client, message, args) => {
       
       let globalprefix = config.prefix;
       osutils.cpuUsage(function(v) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
         .setColor(0x7289DA)
         .setThumbnail(client.user.avatarURL({ format: 'png', dynamic: true, size: 2048 }))
         .setURL(client.user.avatarURL({ format: 'png', dynamic: true, size: 2048 }))
