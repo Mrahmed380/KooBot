@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
       }
     })
     
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.RichEmbed()
     .setColor("#ff9900")
     .setTitle(`${message.mentions.users.first().username}, you got poked by ${message.author.username}`)
     .setImage(body.url) 
