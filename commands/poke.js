@@ -3,7 +3,7 @@ const superagent = require('superagent');
 
 
 
-exports.run = async (client, message, args, tools) => {
+exports.run = async (client, message, args) => {
     if (!message.mentions.users.first()) return message.reply("You need to mention someone to pat them");
     if (message.mentions.users.first().id === client.user.id) return message.channel.send('<a:yayyy:497742636439044096>');
     if (message.mentions.users.first().id == message.author.id) return message.reply("Idk if thats possible chief")
