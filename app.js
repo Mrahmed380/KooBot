@@ -27,7 +27,7 @@ poster.bind();
 
 client.on("ready", () => {
   console.log("The bot has started!");
-  client.user.setActivity(`DraconianBot V 1.6`, { type: "LISTENING" });
+  client.user.setActivity(`DraconianBot V1.8 | ${scount} Servers`, { type: "LISTENING" });
 
   let messageID = "717359708742352957";
   let guild = client.guilds.first();
