@@ -15,7 +15,6 @@ client.config = config;
 var scount = client.guilds.size;
 const db = require("quick.db")
 
-
 const dbl = require(`discord-bot-list`)
  
 const clientcode = new dbl({
