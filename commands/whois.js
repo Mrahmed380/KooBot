@@ -7,10 +7,10 @@ module.exports.run = async (bot, message, args) => {
         }
 
         let status = { 
-            "online": "<:Online:716154830611021887> Online",
-            "idle": "<:Idle:716154833287118878> Idle",
-            "dnd": "<:Dnd:716154833736040518> Do Not Disturb",
-            "invisible": "<:Invisible:716154830783250484> Offline"
+            "online": "<:online:734741273214320652> Online",
+            "idle": "<:idle:734741276779479121> Idle",
+            "dnd": "<:dnd:734741275139375104> Do Not Disturb",
+            "invisible": "<:invisible:734741275294826606> Offline"
         }
 
         let user;
