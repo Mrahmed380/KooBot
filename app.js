@@ -15,12 +15,11 @@ client.config = config;
 var scount = client.guilds.size;
 const db = require("quick.db")
 
-const dbl = require("dblposter");
-const DBLPoster = new dbl(`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU5OTk3NTA2MzU4NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1MjQ4NjQ3fQ.DBhQFTSAa0QpQbd1-w6CeKKUpwyWDAoPNWEOsgUL3yo`, client);
-
-// Then, depending on what you called your client
-DBLPoster.bind();
-
+const { DiscordBotsList } = require('discordbots-api');
+const DiscordBots = new DiscordBotsList('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU5OTk3NTA2MzU4NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1MjQ4NjQ3fQ.DBhQFTSAa0QpQbd1-w6CeKKUpwyWDAoPNWEOsgUL3yo');
+const servercount = '100'; // Replace '' with your guild count.
+ 
+DiscordBots.postStats(servercount);
 
 client.on("ready", () => {
   console.log("The bot has started!");
@@ -34,6 +33,7 @@ client.on("ready", () => {
 app.get("/", (request, response) => {
 console.log(Date.now() + " Ping Received");
 response.sendStatus(200);
+  
 });
 app.listen(process.env.PORT);
 setInterval(() => {
