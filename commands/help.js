@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("**📱基本**", "`help`, `info`, `ping`, `vote`")
     .addField(
       "**⚙utility**",
-      "`serverinfo`, `userinfo`, `avatar`, `test`, `embed`, `eval`, `channel`, `waether`, `botinfo`, `timer`, `translate`, `urban`, `uptime`, `stats`, `aes256`, `deaes256`"
+      "`serverinfo`, `whois`, `avatar`, `test`, `embed`, `eval`, `channel`, `waether`, `botinfo`, `timer`, `translate`, `urban`, `uptime`, `stats`, `aes256`, `deaes256`"
     )
     .addField(
       "**🎃Fun**",
