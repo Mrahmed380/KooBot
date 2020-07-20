@@ -3,7 +3,7 @@ const superagent = require('superagent')
 
 exports.run = (client, msg, args) => {
   if (msg.channel.nsfw === true) {
-    superagent.get('https://nekobot.xyz/api/image')
+    superagent.get('https://boob.bot/api/v2/img/4k')
     .query({ type: '4k'})
     .end((err, response, body) => {
       let emb = new discord.RichEmbed()
