@@ -155,6 +155,12 @@ client.on("message", async message => {
   if(message.channel.id === "703080590110490655") return;
   if(message.channel.id === "720286615972610048") return;
   if(message.channel.id === "700978700492996650") return;
+   if (filterwords.bannedwords.some(word => message.content.toLowerCase().includes(word))) {
+      if (!message.member.hasPermissions("MANAGE_MESSAGES"))
+        return message
+          .delete()
+          .then(message.channel.send(embed2).then(msg => msg.delete(5000)));
+    }
   let embed2 = new Discord.RichEmbed().setTitle(
       `**${message.author.username}#${message.author.discriminator}** 喂！注意你的言行！`
     );
