@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
     const embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setAuthor(`${user.tag} Info`, message.author.displayAvatarURL)
-        .setDescription(`**• Name：**${user.tag}\n**• ID: **${user.id}\n\n**• Account Type：**${trufal[user.bot]}\n**• Status：**${status[user.presence.status]}\n**• Game： **${user.presence.game ? user.presence.game.name : 'I do not see him playing anything!'}\n**• Created at:** ${user.createdAt}**\n\n• Roles：**${member.roles.map(roles => `${roles}`).join(', ')}\n\n**• Avatar：**[Click here](${user.displayAvatarURL})`)
+        .setDescription(`**• Name：**${user.tag}\n**• ID: **${user.id}\n**• Account Type：**${trufal[user.bot]}\n**• Status：**${status[user.presence.status]}\n**• Game： **${user.presence.game ? user.presence.game.name : 'I do not see him playing anything!'}\n**• Created at:** ${user.createdAt}**\n• Roles：**${member.roles.map(roles => `${roles}`).join(', ')}\n**• Avatar：**[Click here](${user.displayAvatarURL})\n**• User Billings：** Draconian Free Package`)
 
         .setThumbnail(user.avatarURL)
         .setTimestamp()
