@@ -3,11 +3,11 @@ const superagent = require('superagent')
 
 exports.run = (client, msg, args) => {
   if (msg.channel.nsfw === true) {
-    superagent.get('https://boob.bot/api/v2/img/4k')
+    superagent.get('https://nekobot.xyz/api/image')
     .query({ type: '4k'})
-    .end((err, response, body) => {
+    .end((err, response) => {
       let emb = new discord.RichEmbed()
-                    .setImage(body)
+                    .setImage({file: response.body.message})
                     .setColor("#00ff00")
                     .setTitle("Pussy here")
                     .setFooter(`©2020 Draconian Workshop | This command requested by ${msg.author.username}#${msg.author.discriminator}`)
