@@ -16,13 +16,13 @@ var scount = client.guilds.size;
 const db = require("quick.db")
 
 
-const dbl = require("dblposter");
+const superagent = require('superagent')
 
-
-const poster = new dbl("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU5OTk3NTA2MzU4NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1MTY5NTk3fQ.0tP9otAcxPGCn9dyzSG8zbZk7rMd3PqUYDoVYQTdy-0", client);
- 
-// This will bind the poster to your client and start posting automatically.
-poster.bind();
+superagent.post(`https://discordbots.org/api/bots/stats`)
+  .set('Authorization', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU5OTk3NTA2MzU4NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1MTY5NTk3fQ.0tP9otAcxPGCn9dyzSG8zbZk7rMd3PqUYDoVYQTdy-0')
+  .send({ server_count: client.guilds && client.guilds.size ? client.guilds.size : (client.Guilds ? client.Guilds.size : Object.keys(client.Servers).length) })
+  .then(() => console.log('Updated discordbots.org stats'))
+  .catch(err => console.error(`Error updating discordbots.org stats: ${err.body || err}`));
 
 
 client.on("ready", () => {
