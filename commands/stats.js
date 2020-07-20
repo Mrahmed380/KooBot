@@ -23,10 +23,9 @@ exports.run = async (client, message, args) => {
       osutils.cpuUsage(function(v) {
         const embed = new Discord.RichEmbed()
         .setColor(0x7289DA)
-        .setThumbnail(client.user.avatarURL({ format: 'png', dynamic: true, size: 2048 }))
-        .setURL(client.user.avatarURL({ format: 'png', dynamic: true, size: 2048 }))
+       
         .setTimestamp()
-        .addField("Cryptonix X Ver.Rewrite", "Show the bot's stats.")
+        .addField("Draconian Bot", "Show the bot's stats.")
         .addField("-------------------------------------------------------------------------------","----------------------------------------------------------------------------")
         .addField("Global Prefix", "d!")
         .addField("Total Servers", `${client.guilds.cache.size}`, true)
