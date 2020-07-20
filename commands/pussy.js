@@ -6,7 +6,7 @@ exports.run = (client, msg, args) => {
     superagent.get('https://nekobot.xyz/api/image')
     .query({ type: 'pussy'})
     .end((err, response) => {
-      const embed = New Discord.RichEmbed
+      const embed = New Discord.RichEmbed()
       .setTitle(`Pussy Here`)
       .setImage(response.body.message)
       msg.channel.send(embed);
