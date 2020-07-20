@@ -6,12 +6,10 @@ exports.run = (client, msg, args) => {
     superagent.get('https://nekobot.xyz/api/image')
     .query({ type: 'pussy'})
     .end((err, response) => {
-      const embed = New Discord.RichEmbed()
-      .setTitle(`Pussy Here`)
-      .setImage(response.body.message)
-      msg.channel.send(embed);
+      msg.channel.send({ file: response.body.message });
     });
   } else {
-    msg.channel.send("No NO NO, This isn't NSFW channel!")
+    msg.channel.send("This isn't NSFW channel!")
   }
 };
+
