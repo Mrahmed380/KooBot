@@ -47,6 +47,7 @@
     "pidusage": "^2.0.21",
     "moment-duration-format": "^2.2.2",
     "moment": "^2.27.0",
-    "superagent": "^5.3.1"
+    "superagent": "^5.3.1",
+    "discord-bot-list": "^1.0.1"
   }
 }
