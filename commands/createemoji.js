@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => { // eslint-disable-line no-unuse
     let embed6 = new Discord.RichEmbed()
   .setDescription(`:no_entry_sign: ${message.author.username}, Missing Permission`)
   .setColor('RED')
-    if (!message.member.hasPermissions("KICK_MEMBERS")) return message.channel.send(embed6).then(msg=>msg.delete(5000));
+    if (!message.member.hasPermissions("MANAGE_EMOJIS")) return message.channel.send(embed6).then(msg=>msg.delete(5000));
     let emoji = message.attachments.array()[0] || args[0];
     
     if (emoji) {
