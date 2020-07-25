@@ -222,9 +222,13 @@ client.on("message", async message => {
  
   
   
-  let prefix = db.get(`prefix_${message.guild.id}`)
-  if(prefix === null) prefix = config.prefix;
-  
+  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+  if(!prefixes[message.guild.id]){
+    prefixes[message.guild.id] = {
+      prefixes: config.prefix
+    };
+  }
+  let prefix = prefixes[message.guild.id].prefixes;
   
   if (!message.content.startsWith(prefix)) return;
 
