@@ -32,7 +32,7 @@ exports.run = async(client, msg, args) => {
   let asuembed = new Discord.RichEmbed()
   .setTitle(`Please create a Channel called ${config.logsChannel} to log the bans!`)
   .setColor('#FFFF00')
-  if (!logs) return msg.channel.send(asuembed).then(msg=>msg.delete(5000));
+  
   
   let kickEmbed = new Discord.RichEmbed()
   .setColor('RED')
@@ -49,7 +49,7 @@ let suembed = new Discord.RichEmbed()
   msg.delete()
   msg.channel.send(suembed);
   kickTaged.kick(reason);
-  logs.send(kickEmbed);
-  kickTaged.send(`You was been kicked in **${msg.guild.name}**\ by **${msg.author.username}**, ${reason}`)
   
+  kickTaged.send(`You was been kicked in **${msg.guild.name}**\ by **${msg.author.username}**, ${reason}`)
+  logs.send(kickEmbed);
 };
