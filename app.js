@@ -22,13 +22,16 @@ const poster = new dbl("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU
 poster.bind();
 
 
-client.on("ready", () => {
+client.on("ready", function() => {
   console.log("The bot has started!");
   client.user.setActivity(`KooBot V1.9 | ${client.guilds.size} Servers`, { type: "LISTENING" });
 
-  let messageID = "717359708742352957";
-  let guild = client.guilds.first();
+  
   console.log("Ready!");
+});
+
+client.on("guildCreate", guild => {
+   client.user.setActivity(`KooBot V1.9 | ${client.guilds.size} Servers`, { type: "LISTENING" });
 });
 
 app.get("/", (request, response) => {
