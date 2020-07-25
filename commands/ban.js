@@ -3,12 +3,7 @@ const fs = require('fs');
 const config = require("../config.json");
 
 exports.run = async(bot, msg, args) => {
-  let logsChannels = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-  if (!logsChannels[msg.guild.id]) {
-    logsChannels[msg.guild.id] = {
-      prefixes: config.logsChannel
-    };
-  }
+
   let logs = msg.guild.channels.find('name', config.logsChannel);
 
 
@@ -41,7 +36,7 @@ exports.run = async(bot, msg, args) => {
   let lombed = new Discord.RichEmbed()
   .setAuthor(`Please create a called ${config.logsChannel} to log a Ban!`)
   .setColor('#FFFF00')
-  if (!logs) return msg.channel.send(lombed);
+  
   
   let banEmbed = new Discord.RichEmbed()
   .setColor('RED')
@@ -58,7 +53,8 @@ exports.run = async(bot, msg, args) => {
   msg.delete()
   msg.channel.send(bsuembed);
   banTaged.ban(reason);
-  logs.send(banEmbed);
+  
   banTaged.send(`You are banned **${msg.guild.name}** by **${msg.author.username}**, Reason : **${reason}**`)
+  logs.send(banEmbed);
   
 };
