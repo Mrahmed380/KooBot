@@ -13,14 +13,18 @@ const ytdl = require("ytdl-core");
 client.login(process.env.TOKEN);
 client.config = config;
 var scount = client.guilds.size;
+const dbl = require("dblposter");
 const db = require("quick.db")
 
+const poster = new dbl("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU5OTk3NTA2MzU4NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1NjczNTE1fQ.OrGHmO_MiKkAwp3uWs88wzx8r21LOit3471O_FeDugI", client);
 
+// This will bind the poster to your client and start posting automatically.
+poster.bind();
 
 
 client.on("ready", () => {
   console.log("The bot has started!");
-  client.user.setActivity(`DraconianBot V1.8 | ${client.guilds.size} Servers`, { type: "LISTENING" });
+  client.user.setActivity(`KooBot V1.9 | ${client.guilds.size} Servers`, { type: "LISTENING" });
 
   let messageID = "717359708742352957";
   let guild = client.guilds.first();
