@@ -22,7 +22,7 @@ const poster = new dbl("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMTkzNzU
 poster.bind();
 
 
-client.on("ready", function() => {
+client.on("ready", () => {
   console.log("The bot has started!");
   client.user.setActivity(`KooBot V1.9 | ${client.guilds.size} Servers`, { type: "LISTENING" });
 
