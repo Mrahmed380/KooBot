@@ -52,7 +52,7 @@ let embed6 = new Discord.RichEmbed()
   .addField(`Reason`, `\`\`\`${reason}\`\`\``)
     .setTimestamp()
   .setFooter(`• Mute User Information`);
-  logs.send(embed)
+  
   
 let embed10 = new Discord.RichEmbed()
   .setDescription(`<:tick:702386031361523723> Muted **<@${tomute.id}>** for **${ms(ms(mutetime))}** | **${reason}**`)
@@ -69,7 +69,7 @@ let embed10 = new Discord.RichEmbed()
     tomute.removeRole(muterole.id);
     message.channel.send(embed11);
   }, ms(mutetime));
-
+  logs.send(embed)
 
 //end of module
 }
