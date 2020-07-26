@@ -1,64 +1,34 @@
 const Discord = require('discord.js');
-const ytdl = require('ytdl-core');
-const config = require("../config.json");
-const YouTube = require('simple-youtube-api');
-const youtube = new YouTube(config.YTAPI);
-const queue = new Map(); 
+ const ytdl = require('ytdl-core');
 
-module.exports.run = async (client, msg, args) =>{
-  
-  const searchString = args.slice(1).join(' ');
-	const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
-	const serverQueue = queue.get(msg.guild.id);
-  
-  const voiceChannel = msg.member.voiceChannel;
-		if (!voiceChannel) return msg.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
-		const permissions = voiceChannel.permissionsFor(msg.client.user);
-		if (!permissions.has('CONNECT')) {
-			return msg.channel.send('I cannot connect to your voice channel, make sure I have the proper permissions!');
-		}
-		if (!permissions.has('SPEAK')) {
-			return msg.channel.send('I cannot speak in this voice channel, make sure I have the proper permissions!');
-		}
+  module.exports.run = async (bot, message, args) =>{
+   if(!message.member.voiceChannel)
+     return message.channel.send("You must be in a voice channel for me to start playing music");
+   if(message.guild.me.voiceChannel)
+     return message.channel.send("Im busy at a different voice channel on the server. Try again later.");
 
-		if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
-			const playlist = await youtube.getPlaylist(url);
-			const videos = await playlist.getVideos();
-			for (const video of Object.values(videos)) {
-				const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
-				await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
-			}
-			return msg.channel.send(`✅ Playlist: **${playlist.title}** has been added to the queue!`);
-		} else {
-			try {
-				var video = await youtube.getVideo(url);
-			} catch (error) {
-				try {
-					var videos = await youtube.searchVideos(searchString, 10);
-					let index = 0;
-					msg.channel.send(`__**Song selection:**__\n${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}\n\nPlease provide a value to select one of the search results ranging from 1-10.`);
-					// eslint-disable-next-line max-depth
-					try {
-						var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
-							maxMatches: 1,
-							time: 10000,
-							errors: ['time']
-						});
-					} catch (err) {
-						console.error(err);
-						return msg.channel.send('No or invalid value entered, cancelling video selection.');
-					}
-					const videoIndex = parseInt(response.first().content);
-					var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
-				} catch (err) {
-					console.error(err);
-					return msg.channel.send('🆘 I could not obtain any search results.');
-				}
-			}
-			return handleVideo(video, msg, voiceChannel);
-		}
-}
+    if(!args[0])
+     return message.channel.send("Please enter a youtube URL for me to load the song from.");
 
-module.exports.help = {
-  name: "play"
-}
+    let validate = await ytdl.validateURL(args[0]);
+   if(!validate)
+     return message.channel.send("Whoops, re-check the URL you gave me, I am getting an error while trying to play the song. ");
+
+    let info = await ytdl.getInfo(args[0]);
+   let voiceChannel = message.member.voiceChannel;
+   let connection = await voiceChannel.join();
+   let dispatcher = await connection.playStream(ytdl(args[0], {filter: 'audioonly'}))
+     .on("end", end => {
+       message.channel.send(`Finished Playing: ${info.title}`);
+       voiceChannel.leave();
+     })
+     .on("error", error => {
+       console.error(error);
+       message.channel.send("Error Occurred during playback. Try again later.");
+     });
+   return message.channel.send(`Now Playing: ${info.title}`);
+ }
+
+  module.exports.help = {
+   name: "play"
+ }
