@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
   const embed = new Discord.RichEmbed()
-    .setTitle("DraconianBot Help")
+    .setTitle("KooBot Help")
     .setColor("GREEN")
     .setDescription(
       "**prefix** `d!`\nMore Info please visit: [Here]"
