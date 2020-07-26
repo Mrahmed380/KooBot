@@ -55,7 +55,7 @@ module.exports.run = async (client, msg, args) =>{
 					return msg.channel.send('🆘 I could not obtain any search results.');
 				}
 			}
-			return handleVideo(video, msg, voiceChannel);
+			
 		}
 }
 
