@@ -54,7 +54,7 @@ setInterval(() => {
 http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 280000);
 
-client.on('messageUpdate', (oldMessage, newMessage) => {
+client.on('messageUpdate', async(oldMessage, newMessage) => {
 if (newMessage.guild.id === "687219262406131714") {
   if(newMessage.channel.id === "703080590110490655") return;
   if(newMessage.channel.id === "720286615972610048") return;
