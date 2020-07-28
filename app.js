@@ -31,7 +31,10 @@ client.on("ready", () => {
 });
 
 client.on("guildCreate", guild => {
-   client.user.setActivity(`KooBot V1.9 | ${client.guilds.size} Servers`, { type: "LISTENING" });
+   client.user.setActivity(`KooBot V2.0 | ${client.guilds.size} Servers`, { type: "LISTENING" });
+});
+client.on("guildDelete", guild => {
+   client.user.setActivity(`KooBot V2.0 | ${client.guilds.size} Servers`, { type: "LISTENING" });
 });
 
 app.get("/", (request, response) => {
