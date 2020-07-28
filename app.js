@@ -55,8 +55,40 @@ http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 280000);
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
+if (newMessage.guild.id === "687219262406131714") {
+  if(newMessage.channel.id === "703080590110490655") return;
+  if(newMessage.channel.id === "720286615972610048") return;
+  if(newMessage.channel.id === "700978700492996650") return;
+   let embed2 = new Discord.RichEmbed().setTitle(
+      `**${newMessage.author.username}#${newMessage.author.discriminator}** 喂！注意你的言行！`
+    );
+   
+   if (newMessage.bannedwords.some(word => newMessage.content.toLowerCase().includes(word))) {
+      if (!newMessage.member.hasPermissions("MANAGE_MESSAGES"))
+        return newMessage
+          .delete()
+          .then(newMessage.channel.send(embed2).then(msg => msg.delete(5000)));
+    }
   
-}
+    let embed310101 = new Discord.RichEmbed()
+      .setTitle(
+        `**${newMessage.author.username}#${newMessage.author.discriminator}** 喂！別以為你可以ping全世界！`
+      )
+      .setColor("RED");
+  
+
+
+
+    const needlessword = ["@everyone", "@here"];
+    if (needlessword.some(word => newMessage.content.includes(word))) {
+      if (!newMessage.member.hasPermissions("MANAGE_MESSAGES"))
+        return newMessage
+          .delete()
+          .then(newMessage.channel.send(embed310101).then(msg => msg.delete(5000)));
+    }
+  }
+ }
+           )
 
 client.on("message", async message => {
     
