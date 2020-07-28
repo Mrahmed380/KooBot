@@ -63,7 +63,7 @@ if (newMessage.guild.id === "687219262406131714") {
       `**${newMessage.author.username}#${newMessage.author.discriminator}** 喂！注意你的言行！`
     );
    
-   if (newMessage.bannedwords.some(word => newMessage.content.toLowerCase().includes(word))) {
+   if (filterwords.bannedwords.some(word => newMessage.content.toLowerCase().includes(word))) {
       if (!newMessage.member.hasPermissions("MANAGE_MESSAGES"))
         return newMessage
           .delete()
