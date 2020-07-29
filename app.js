@@ -24,7 +24,7 @@ poster.bind();
 
 client.on("ready", () => {
   console.log("The bot has started!");
-  client.user.setActivity(`KooBot V1.9 | ${client.guilds.size} Servers`, { type: "LISTENING" });
+  client.user.setActivity(`KooBot V2.0 | ${client.guilds.size} Servers`, { type: "LISTENING" });
 
   
   console.log("Ready!");
